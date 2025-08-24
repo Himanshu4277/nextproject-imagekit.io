@@ -9,7 +9,7 @@ export default function VideoFeed({ videos }: VideoFeedProps) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {videos.map((video) => (
-                <div key={video._id?.toString()} className="flex border rounded border-gray-800 "><VideoComponent  video={video} /></div>
+                <div key={video._id?.toString()} className="flex "><VideoComponent  video={video} /></div>
             ))}
 
             {videos.length === 0 && (

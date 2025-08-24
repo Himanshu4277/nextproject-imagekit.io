@@ -90,7 +90,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ fileType, onSuccess }) => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-white rounded shadow space-y-4">
+    <div className="p-4 max-w-md mx-auto  rounded shadow space-y-4">
       <input
         type="file"
         accept={fileType === "video" ? "video/*" : "image/*"}

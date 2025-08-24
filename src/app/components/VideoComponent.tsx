@@ -39,8 +39,8 @@ export default function VideoComponent({ video }: { video: IVideo }) {
   };
 
   return (
-    <div className="card bg-base-100 shadow hover:shadow-lg transition-all duration-300">
-      <figure style={} className="relative  px-4 pt-4">
+    <div className="card bg-gray-800 rounded-2xl shadow hover:shadow-lg transition-all duration-300">
+      <figure className="relative  px-4 pt-4">
         <div
           className="rounded-xl overflow-hidden relative w-full group"
           style={{ aspectRatio: "9/16" }}
@@ -71,9 +71,9 @@ export default function VideoComponent({ video }: { video: IVideo }) {
 
       <div className="card-body p-4">
         <Link href={`/videos/${video._id}`} className="hover:opacity-80 transition-opacity">
-          <h2 className="card-title text-lg">{video.title}</h2>
+          <h2 className="card-title text-center text-lg">{video.title}</h2>
         </Link>
-        <div className="border border-gray-800"></div>
+        <div className="border border-gray-700"></div>
         <p className="text-sm text-base-content/70 line-clamp-2">
           {video.description}
         </p>

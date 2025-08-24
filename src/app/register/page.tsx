@@ -41,9 +41,9 @@ function RegisterPage() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow space-y-4">
-      <h2 className="text-2xl font-bold text-center">Register</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="p-36 w-full space-y-3 mx-auto bg-gray-600  min-h-[575px]">
+      <form onSubmit={handleSubmit} className=" w-96 p-8 shadow-2xl mx-auto space-y-4">
+        <h2 className="text-2xl font-bold text-center">Register</h2>
         <input
           type="email"
           placeholder="Email"
@@ -71,11 +71,10 @@ function RegisterPage() {
         <button
           type="submit"
           disabled={loading}
-          className={`w-full p-2 rounded text-white ${
-            loading
+          className={`w-full p-2 rounded text-white ${loading
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-600"
-          }`}
+            }`}
         >
           {loading ? "Registering..." : "Register"}
         </button>

@@ -65,16 +65,17 @@ export default function VideoUploadForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-2xl mx-auto bg-white dark:bg-gray-90 text-white  rounded-2xl shadow-lg p-8 space-y-8 border border-gray-200 dark:border-gray-700"
+      className="w-full max-w-2xl mx-auto  bg-gradient-to-r from-indigo-600 via-pink-500 to-yellow-400  text-white rounded-2xl shadow-2xl p-8 space-y-6 "
     >
       <div>
-        <label className="block font-semibold text-lg dark:text-gray-100 mb-2">
+        <label className="block font-semibold text-sm text-white mb-2">
           🎬 Title
         </label>
         <input
           name="title"
+          placeholder="Title..."
           type="text"
-          className="mt-1 w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="mt-1 w-full px-4 py-3 border border-gray-300  rounded-lg bg-white/90 dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm transition"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -82,12 +83,13 @@ export default function VideoUploadForm() {
       </div>
 
       <div>
-        <label className="block font-semibold text-lg text-white mb-2">
+        <label className="block font-semibold text-sm text-white mb-2">
           📝 Description
         </label>
         <textarea
           name="description"
-          className="mt-1 w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="description.."
+          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/90 dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-sm transition"
           required
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -95,17 +97,21 @@ export default function VideoUploadForm() {
       </div>
 
       <div>
-        <label className="block font-semibold text-lg text-white mb-2">
+        <label className="block font-semibold text-sm text-white mb-2">
           📁 Upload Video
         </label>
-        <FileUpload fileType="video" onSuccess={(res: any) => setVideoFile(res)} />
+        <div className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-700 ">
+          <FileUpload fileType="video"  onSuccess={(res: any) => setVideoFile(res)} />
+        </div>
       </div>
 
       <div>
-        <label className="block font-semibold text-lg text-white mb-2">
+        <label className="block font-semibold text-sm text-white mb-2">
           🖼️ Optional Thumbnail Image
         </label>
-        <FileUpload fileType="image" onSuccess={(res: any) => setThumbnailFile(res)} />
+        <div className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-700  dark:bg-transparent">
+          <FileUpload fileType="image" onSuccess={(res: any) => setThumbnailFile(res)} />
+        </div>
         {thumbnailFile && (
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
             Thumbnail selected: {thumbnailFile.name || "(No name)"}
@@ -116,21 +122,23 @@ export default function VideoUploadForm() {
       <button
         type="submit"
         disabled={loading}
-        className={`w-full px-4 py-2 font-semibold cursor-pointer rounded-md border text-white ${
-          loading ? "bg-indigo-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-700"
+        className={`w-full px-5 py-3 font-semibold rounded-lg border text-white shadow-md transform transition-all duration-150 ${
+          loading
+            ? "opacity-60 cursor-not-allowed bg-gradient-to-r from-indigo-300 to-purple-300"
+            : "bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:scale-[1.01]"
         }`}
       >
         {loading ? "Publishing..." : "🚀 Publish Video"}
       </button>
 
       {error && (
-        <p className="text-red-600 dark:text-red-400 font-medium mt-4 p-3 bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 rounded-md animate-fade-in">
+        <p className="text-red-700 dark:text-red-300 font-medium mt-4 p-3 bg-red-50 dark:bg-red-900/40 border-l-4 border-red-500 rounded-md animate-fade-in">
           ❌ {error}
         </p>
       )}
 
       {response && !error && (
-        <p className="text-indigo-600 dark:text-indigo-400 font-medium mt-4 p-3 bg-indigo-100 dark:bg-indigo-900 border border-indigo-400 dark:border-green-600 rounded-md animate-fade-in">
+        <p className="text-emerald-700 dark:text-emerald-300 font-medium mt-4 p-3 bg-emerald-50 dark:bg-emerald-900/30 border-l-4 border-emerald-500 rounded-md animate-fade-in">
           ✅ Video uploaded successfully! Redirecting...
         </p>
       )}

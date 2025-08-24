@@ -31,15 +31,15 @@ function LoginPage() {
     }
 
     return (
-        <div className="p-4 max-w-md mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Login</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="p-4 bg-blue-400 mx-auto h-screen">
+            <form onSubmit={handleSubmit} className=" w-[550px] space-y-8 h-[450px] mx-auto shadow-2xl p-9 border border-gray-200 rounded-2xl ">
+            <h2 className="text-2xl font-bold mb-4 text-center ">Login</h2>
                 <input
                     type="email"
                     placeholder="Email"
                     value={Email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded border-gray-200"
                     required
                 />
                 <input
@@ -47,7 +47,7 @@ function LoginPage() {
                     placeholder="Password"
                     value={Password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded border-gray-200"
                     required
                 />
 
@@ -59,7 +59,7 @@ function LoginPage() {
                     type="submit"
                     disabled={loading}
                     className={`w-full p-2 rounded text-white ${
-                        loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
+                        loading ? 'bg-red-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'
                     }`}
                 >
                     {loading ? "Logging in..." : "Login"}
