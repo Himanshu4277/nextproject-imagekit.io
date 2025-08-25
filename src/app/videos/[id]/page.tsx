@@ -14,7 +14,7 @@ export default async function VideoPage({ params }: { params: { id: string } }) 
   return (
     <div className=" mx-auto p-8 bg-gray-600 w-full">
       <video
-        src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/${video.videoUrl}`} 
+        src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/${video.videoUrl}`}
         controls
         poster={video.thumbnailUrl}
         className="w-[1200px] mx-auto max-h-[500px] rounded-lg border border-gray-600 shadow-2xl"
